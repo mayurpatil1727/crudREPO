@@ -1,0 +1,52 @@
+﻿@model List<crudSimple.Models.EmpModel>
+
+@{
+    ViewData["Title"] = "getEmpList";
+}
+
+<h1>Employee List</h1>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Employee ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Salary</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var emp in Model)
+        {
+            <tr>
+                <td>@emp.EmpID</td>
+                <td>@emp.EmpName</td>
+                <td>@emp.EmpEmail</td>
+                <td>@emp.EmpSalary</td>
+                <td>
+                    <form id="detailsForm" asp-controller="Emp" asp-action="Details" method="post">
+                        <input type="hidden" name="id" value="@emp.EmpID" />
+                        <button type="submit" class="link-button">Details</button>
+                    </form>
+                    <form id="detailsForm" asp-controller="Emp" asp-action="Delete" method="post">
+                        <input type="hidden" name="id" value="@emp.EmpID" />
+                        <button type="submit" class="link-button">Delete</button>
+                    </form>
+                    <form id="detailsForm" asp-controller="Emp" asp-action="Update" method="get">
+                        <input type="hidden" name="id" value="@emp.EmpID" />
+                        <button type="submit" class="link-button">Update</button>
+                    </form>
+                </td>
+            </tr>
+
+        }
+
+    </tbody>
+</table>
+
+
+<div>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    <a asp-action="Index">Back to List</a>
+</div>

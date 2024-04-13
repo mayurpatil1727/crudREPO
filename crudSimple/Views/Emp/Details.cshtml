@@ -1,0 +1,37 @@
+﻿@model List<crudSimple.Models.EmpModel> 
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+
+<h1>Employee List</h1>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Employee ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Salary</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var emp in Model)
+        {
+            <tr>
+                <td>@emp.EmpID</td>
+                <td>@emp.EmpName</td>
+                <td>@emp.EmpEmail</td>
+                <td>@emp.EmpSalary</td>
+
+            </tr>
+
+        }
+
+    </tbody>
+</table>
+
