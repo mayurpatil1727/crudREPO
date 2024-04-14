@@ -142,6 +142,27 @@ namespace crudSimple.Controllers
             }
             return RedirectToAction("getEmpList");
         }
+
+
+        [HttpPost]
+        public IActionResult InsertEmployee2(string EmpName, string EmpEmail, decimal EmpSalary)
+        {
+
+            using (SqlConnection con = new SqlConnection(_Configuration.GetConnectionString("DefaultConnection")))
+            {
+                con.Open();
+                var param = new
+                {
+
+                    EmpName = EmpName,
+                    EmpEmail = EmpEmail,
+                    EmpSalary = EmpSalary,
+                };
+                con.Execute("SPinsertEmp", param, commandType: CommandType.StoredProcedure);
+            }
+            ModelState.Clear();
+            return RedirectToAction("getEmpList");
+        }
     }
 }
 

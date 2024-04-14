@@ -19,25 +19,30 @@
             </div>
             <div class="form-group">
                 <label asp-for="EmpName" class="control-label"></label>
-                <input asp-for="EmpName" class="form-control" />
+                <input asp-for="EmpName" id="en" class="form-control" />
                 <span asp-validation-for="EmpName" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="EmpEmail" class="control-label"></label>
-                <input asp-for="EmpEmail" class="form-control" />
+                <input asp-for="EmpEmail" id="ee" class="form-control" />
                 <span asp-validation-for="EmpEmail" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="EmpSalary" class="control-label"></label>
-                <input asp-for="EmpSalary" class="form-control" />
+                <input asp-for="EmpSalary" id="es" class="form-control" />
                 <span asp-validation-for="EmpSalary" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>
+
         </form>
+        <div class="form-group">
+            <input type="submit" value="Insert with Jquery" id="JQbtn" class="btn btn-primary" />
+        </div>
     </div>
 </div>
+
 
 <div>
     <a asp-action="getEmpList" asp-controller="Emp" method="get">Get Employees List</a>
